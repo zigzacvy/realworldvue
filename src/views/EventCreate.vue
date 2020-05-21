@@ -1,47 +1,46 @@
 <template>
   <form @submit.prevent="createEvent">
-    <label>Select a category</label>
-    <select v-model="event.category">
-      <option v-for="cat in categories" :key="cat">{{ cat }}</option>
-    </select>
+    <BaseSelect
+      v-model="event.category"
+      label="Select a category"
+      :options="categories"
+      class="field"
+    />
     <h3>Name & describe your event</h3>
-    <div class="field">
-      <label>Title</label>
-      <input
-        v-model="event.title"
-        type="text"
-        placeholder="Add an event title"
-      />
-    </div>
-    <div class="field">
-      <label>Description</label>
-      <input
-        v-model="event.description"
-        type="text"
-        placeholder="Add a description"
-      />
-    </div>
+    <BaseInput
+      label="Title"
+      v-model="event.title"
+      type="text"
+      placeholder="Add an event title"
+      class="field"
+    />
+    <BaseInput
+      class="field"
+      v-model="event.description"
+      type="text"
+      placeholder="Add a description"
+      label="Description"
+    />
     <h3>Where is your event?</h3>
-    <div class="field">
-      <label>Location</label>
-      <input
-        v-model="event.location"
-        type="text"
-        placeholder="Add a location"
-      />
-    </div>
+    <BaseInput
+      class="field"
+      v-model="event.location"
+      label="Location"
+      placeholder="Add a location"
+      type="text"
+    />
     <h3>When is your event?</h3>
     <div class="field">
       <label>Date</label>
       <datepicker v-model="event.date" placeholder="Select a date" />
     </div>
-    <div class="field">
-      <label>Select a time</label>
-      <select v-model="event.time">
-        <option v-for="time in times" :key="time">{{ time }}</option>
-      </select>
-    </div>
-    <input type="submit" class="button -fill-gradient" value="Submit" />
+    <BaseSelect
+      label="Select a time"
+      v-model="event.time"
+      :options="times"
+      class="field"
+    />
+    <BaseButton type="submit" buttonClass="button -fill-gradient">Submit</BaseButton>
   </form>
 </template>
 
