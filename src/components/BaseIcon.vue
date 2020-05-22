@@ -14,7 +14,7 @@ export default {
     name: String,
     width: {
       type: [Number, String],
-      default: 25
+      default: 24
     },
     height: {
       type: [Number, String],
